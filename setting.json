@@ -1,0 +1,10 @@
+{
+    "db": {
+        "host": "localhost",
+        "user": "root",
+        "password": "root",
+        "dbname": "db_wp"
+    },
+    "_comment": "DB分割したい場合は、親ページのpost_idを数字の配列で入力してください。分割しない場合は空の配列にしてください",
+    "parent_ids": [1, 2]
+}
