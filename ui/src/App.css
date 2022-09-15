@@ -1,142 +1,140 @@
 /***********/
 /*共通箇所*/
 /***********/
-body{
-  width:95%;
-  margin:0 auto;
+body {
+  width: 95%;
+  margin: 0 auto;
   padding: 40px 0;
-  background:#333;
-  color:#FFF;
-  font-size:14px;
+  background: #333;
+  color: #fff;
+  font-size: 14px;
 }
 
 /***********/
 /*見出し*/
 /***********/
-.headLineUnderLineLarge{
-  border-bottom:1px solid #FFF;
-  padding:0 10px 10px;
+.headLineUnderLineLarge {
+  border-bottom: 1px solid #fff;
+  padding: 0 10px 10px;
   letter-spacing: 1.5px;
   font-size: 1.6em;
-
 }
-.headLineUnderLineSmall{
-  border-bottom:1px solid #AAA;
-  padding:0 5px 5px;
+.headLineUnderLineSmall {
+  border-bottom: 1px solid #aaa;
+  padding: 0 5px 5px;
   letter-spacing: 1px;
   font-size: 1.4em;
-  margin:40px 0 20px;
+  margin: 40px 0 20px;
 }
 
-.headLineBar{
-  padding:10px 15px;
-  background:#333;
-  color:#FFF;
+.headLineBar {
+  padding: 10px 15px;
+  background: #333;
+  color: #fff;
   letter-spacing: 1px;
   font-size: 1.3em;
   margin: 40px 0 20px;
 }
 
-.headLineText{
-  font-size:1em;
-  font-weight:bold;
-  color:#333;
-  margin:20px 0 0;
+.headLineText {
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0 0;
 }
-.headLineText span{
-  font-size:0.8em;
+.headLineText span {
+  font-size: 0.8em;
 }
 
 /***********/
 /*テキスト系*/
 /***********/
-.caption{
-  font-size:1em;
+.caption {
+  font-size: 1em;
 }
-.error{
-  color:#E00;
-  font-weight:bold;
-  font-size:1.2em;
+.error {
+  color: #e00;
+  font-weight: bold;
+  font-size: 1.2em;
 }
-
 
 /***********/
 /*ボタン*/
 /***********/
-.buttonExport{
-  padding:10px 20px;
-  background:#FFF;
-  border:none;
-  border-radius:120px;
-  font-size:1.2em;
+.buttonExport {
+  padding: 10px 20px;
+  background: #fff;
+  border: none;
+  border-radius: 120px;
+  font-size: 1.2em;
   cursor: pointer;
 }
-.buttonExport:hover{
-  opacity:0.8;
+.buttonExport:hover {
+  opacity: 0.8;
 }
 /***********/
 /*エリア毎*/
 /***********/
-.status{
-  width:95%;
-  margin:40px auto;
-  background:#FFF;
-  padding:20px;
-  color:#444;
+.status {
+  width: 95%;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  color: #444;
 }
 
-.status p{
+.status p {
   margin: 20px 0;
-  font-weight:bold;
+  font-weight: bold;
 }
 
-.status p span{
-  font-size:0.8em;
+.status p span {
+  font-size: 0.8em;
 }
 
-.textDelete{
-  color:#E00;
+.textDelete {
+  color: #e00;
 }
 
-.textMove{
-  color:#070;
+.textMove {
+  color: #070;
 }
 
-.textAdd{
-  color:#00A;
+.textAdd {
+  color: #00a;
 }
 
-.status__sql{
-  border:1px double #DDD;
-  padding:20px;
-  background:#EEE;
-  font-size:1.1em;
+.status__sql {
+  border: 1px double #ddd;
+  padding: 20px;
+  background: #eee;
+  font-size: 1.1em;
 }
-.status__sql p{
-  margin:0 0 10px;
-  font-weight:bold;
+.status__sql p {
+  margin: 0 0 10px;
+  font-weight: bold;
 }
-.status__sql p:last-of-type{
-  margin:0;
+.status__sql p:last-of-type {
+  margin: 0;
 }
-.status__sql p span{
-  font-size:0.8em;
-  font-weight:normal;
-}
-
-.replaceList{
-  margin:0;
+.status__sql p span {
+  font-size: 0.8em;
+  font-weight: normal;
 }
 
-.replaceList li{
-  margin:10px 0 0;
-  font-size:0.9em;
-  line-height:1.6;
-  list-style-type:circle;
+.replaceList {
+  margin: 0;
 }
-.replaceList li span{
-  font-weight:bold;
-  padding:0 5px;
+
+.replaceList li {
+  margin: 10px 0 0;
+  font-size: 0.9em;
+  line-height: 1.6;
+  list-style-type: circle;
+}
+.replaceList li span {
+  font-weight: bold;
+  padding: 0 5px;
 }
 
 .loader,
@@ -167,7 +165,7 @@ body{
 .loader:after {
   position: absolute;
   top: 0;
-  content: '';
+  content: "";
 }
 .loader:before {
   left: -1.5em;
@@ -189,4 +187,3 @@ body{
     height: 5em;
   }
 }
-
