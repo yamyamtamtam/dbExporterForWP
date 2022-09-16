@@ -5,8 +5,8 @@ import axios from "axios";
 const Extract = () => {
   const [status, setStatus] = useState("");
   let baseURL = window.location.protocol + "//" + window.location.host;
-  if (!baseURL.match(/HierarchychangeExportForWP/)) {
-    baseURL += "/HierarchychangeExportForWP/";
+  if (!baseURL.match(/dbExporterForWP/)) {
+    baseURL += "/dbExporterForWP/";
   }
   const extractExe = () => {
     setStatus("loading");
