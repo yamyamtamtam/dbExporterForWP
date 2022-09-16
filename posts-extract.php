@@ -174,6 +174,7 @@ if (!empty($create_moves)) {
                 }
 
                 //文字置換
+                $create_move_array[0]["ID"] = $key;
                 list($create_move_array, $status_json) = replace_post_content($replace, $create_move_array, $status_json);
 
                 //出力内容作成
@@ -287,7 +288,7 @@ function children_check(int $id, $link)
 
 /**
  * json作成（actionの内容作成）
- * $grand_parent_id : 最上位の親ページのpost_id（int or string）交差型はPHP 8.1.0以降しか使えないのでやめておく
+ * $grand_parent_id : 最上位の親ページのpost_idか文字列（int or string）交差型はPHP 8.1.0以降しか使えないのでやめておく
  * $target : 投稿１つの配列
  * $json : 整形したいjson
  * $action : actionの名前
