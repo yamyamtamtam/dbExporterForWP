@@ -1,5 +1,7 @@
 import "./App.css";
-import { useState } from "react";
+import {
+  useState
+} from "react";
 import axios from "axios";
 
 const Extract = () => {
@@ -10,7 +12,7 @@ const Extract = () => {
   }
   const extractExe = () => {
     setStatus("loading");
-    const url = baseURL + "posts-extract.php";
+    const url = baseURL + "pages-extract.php";
     axios
       .get(url)
       .then((res) => {
@@ -38,9 +40,10 @@ const Extract = () => {
         if (Object.keys(details).length) {
           text += '<div class="status__detail">';
           for (const grandParentId in details) {
-            <h2 class="headLineUnderLineLarge">
-              DB分割、階層移動、文字列置換
-            </h2>;
+            <
+            h2 class = "headLineUnderLineLarge" >
+              DB分割、 階層移動、 文字列置換 <
+              /h2>;
             text +=
               '<h3 class="headLineBar">' +
               details[grandParentId].top_hierarchy +
@@ -159,30 +162,35 @@ const Extract = () => {
     });
     return returnText;
   };
-  return (
-    <section>
-      <button
-        className="buttonExport"
-        onClick={() => {
+  return ( <
+      section >
+      <
+      button className = "buttonExport"
+      onClick = {
+        () => {
           extractExe();
-        }}
-      >
-        SQLファイル出力
-      </button>
-      {(() => {
+        }
+      } >
+      SQLファイル出力 <
+      /button> {
+      (() => {
         if (status !== "" && status !== "loading") {
-          return (
-            <div
-              className="status"
-              dangerouslySetInnerHTML={{ __html: status }}
+          return ( <
+            div className = "status"
+            dangerouslySetInnerHTML = {
+              {
+                __html: status
+              }
+            }
             />
           );
         } else if (status === "loading") {
-          return <div className="loader"></div>;
+          return <div className = "loader" > < /div>;
         }
-      })()}
-    </section>
-  );
+      })()
+    } <
+    /section>
+);
 };
 
 export default Extract;

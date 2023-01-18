@@ -1,0 +1,27 @@
+{
+    "db": {
+        "host": "localhost",
+        "user": "root",
+        "password": "root",
+        "dbname": "db_wp"
+    },
+    "__comment": "タームの置き換えです。",
+    "convert_taxonomy": {
+        "before": "category",
+        "after": "post_tag"
+    },
+    "__comment": "カスタムフィールドやアイキャッチ画像を移行対象に含めたい場合はwp_postmetaのkeyをカンマ区切りで入力してください。_thumbnail_idはアイキャッチ画像のフィールドになります。",
+    "postmeta_keys": "_thumbnail_id",
+    "__comment": "画像類のパスを移行する場合に使用します。postmeta_keysに_thumbnail_idを指定する場合は指定してください。",
+    "paths": {
+        "install_path": "http://localhost/wp/",
+        "old_file_path": "http://www.sample.com/wp-content/uploads/",
+        "new_file_path": "http://localhost/wp/oldfile/wp-content/uploads/"
+    },
+    "__comment": "どのDBにどのタームに紐づく投稿を入れるか指定する。上から順に優先。上のDBに入った投稿はそれ以下のDBには入らない",
+    "__comment": "左はDB名、上記で指定したDBと同じDB接続情報となる。右のタームidはカンマ指定。",
+    "cat_to_db": {
+        "new_db1": "1,2",
+        "new_db2": "3,4"
+    }
+}
