@@ -38,8 +38,6 @@ $insert_db_and_term = $setting["cat_to_db"];
 $exist_post_ids = array();
 
 foreach($insert_db_and_term as $insert_db => $insert_terms_string){
-    echo '<h1>' . $insert_db . 'に入れるもの</h1>';
-    echo '<br><br><br>';
     $insert_terms = explode(',', $insert_terms_string);
     array_push(
         $exist_post_ids,
@@ -65,11 +63,9 @@ function exec_db_replace($db, string $insert_db, array $insert_terms, string $in
 
     //前のループで挿入した新着情報は次以降のループでは入れない
     global $exist_post_ids;
-    //echo '<pre>'; var_dump($posts); echo '</pre><br><br>';
 
     /*
     for($i = 0; $i < count($posts); $i++){
-        echo $i . ' : ' . $posts[$i]["ID"] . ' : ' . $posts[$i]["post_title"] . '<br>';
         if(in_array($posts[$i]["ID"],$exist_post_ids)){
             unset($posts[$i]);
         }elseif(isset($posts[$i]["ID"])){
@@ -87,8 +83,6 @@ function exec_db_replace($db, string $insert_db, array $insert_terms, string $in
         }
     }
     
-    echo '<pre>'; var_dump($posts); echo '</pre><br><br>';
-
     $post_ids = array();
     foreach($posts as $post){
         array_push($post_ids,$post["ID"]);
@@ -100,7 +94,6 @@ function exec_db_replace($db, string $insert_db, array $insert_terms, string $in
 
     //wp_termsテーブルの必要なもの
     $terms = get_terms_by_ids($post_ids, $link);
-    //echo '<pre>'; var_dump($terms); echo '<pre>';
 
     //wp_term_relationshipsテーブルの必要なもの
     $term_relationships = get_term_relationships_by_ids($post_ids, $link);
