@@ -38,11 +38,8 @@ $insert_db_and_term = $setting["cat_to_db"];
 $exist_post_ids = array();
 
 foreach($insert_db_and_term as $insert_db => $insert_terms_string){
-    /*
-    echo '<pre><h1>このループで除外したID（参照先DBのもの）</h1><br>';
-    var_dump($exist_post_ids);
-    echo '</pre><br><br><br>';
-    */
+    echo '<h1>' . $insert_db . 'に入れるもの</h1>';
+    echo '<br><br><br>';
     $insert_terms = explode(',', $insert_terms_string);
     array_push(
         $exist_post_ids,
@@ -62,20 +59,35 @@ function exec_db_replace($db, string $insert_db, array $insert_terms, string $in
 
     //wp_postsテーブルの必要なもの
     global $replace;
-    $posts = get_posts_by_terms($convert_taxonomy["before"], $insert_terms, $link);
-    $posts = replace_post_content($replace, $posts, $status_json["status"]);
-    $posts = $posts[0];
+    $posts_rows = get_posts_by_terms($convert_taxonomy["before"], $insert_terms, $link);
+    $posts_rows = replace_post_content($replace, $posts_rows, $status_json["status"]);
+    $posts_rows = $posts_rows[0];
 
     //前のループで挿入した新着情報は次以降のループでは入れない
     global $exist_post_ids;
+    //echo '<pre>'; var_dump($posts); echo '</pre><br><br>';
+
+    /*
     for($i = 0; $i < count($posts); $i++){
+        echo $i . ' : ' . $posts[$i]["ID"] . ' : ' . $posts[$i]["post_title"] . '<br>';
         if(in_array($posts[$i]["ID"],$exist_post_ids)){
             unset($posts[$i]);
         }elseif(isset($posts[$i]["ID"])){
             $exist_post_ids[] = $posts[$i]["ID"];
-            echo '<pre><p>「' . $posts[$i]["post_title"] . '」 を挿入</p></pre><br>';
         }
     }
+    */
+    $posts = array();
+    foreach($posts_rows as $posts_row){
+        if(!in_array($posts_row["ID"], $exist_post_ids)){
+            array_push($posts, $posts_row);
+            if(isset($posts_row["ID"])){
+                $exist_post_ids[] = $posts_row["ID"];
+            }
+        }
+    }
+    
+    echo '<pre>'; var_dump($posts); echo '</pre><br><br>';
 
     $post_ids = array();
     foreach($posts as $post){
@@ -88,6 +100,7 @@ function exec_db_replace($db, string $insert_db, array $insert_terms, string $in
 
     //wp_termsテーブルの必要なもの
     $terms = get_terms_by_ids($post_ids, $link);
+    //echo '<pre>'; var_dump($terms); echo '<pre>';
 
     //wp_term_relationshipsテーブルの必要なもの
     $term_relationships = get_term_relationships_by_ids($post_ids, $link);
